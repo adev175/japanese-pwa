@@ -593,10 +593,72 @@
         let quizScore = 0;
         let quizTotal = 0;
         let currentQuizQuestion = null;
+        let isLoading = false;
 
         // Đăng ký service worker cho PWA
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdqYXBhbmVzZS12b2NhYi12MSc7CmNvbnN0IHVybHNUb0NhY2hlID0gWwogICcuLycKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGZ1bmN0aW9uKGV2ZW50KSB7CiAgZXZlbnQud2FpdFVudGlsKAogICAgY2FjaGVzLm9wZW4oQ0FDSEVfTkFNRSkKICAgICAgLnRoZW4oZnVuY3Rpb24oY2FjaGUpIHsKICAgICAgICByZXR1cm4gY2FjaGUuYWRkQWxsKHVybHNUb0NhY2hlKTsKICAgICAgfSkKICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignZmV0Y2gnLCBmdW5jdGlvbihldmVudCkgewogIGV2ZW50LnJlc3BvbmRXaXRoKAogICAgY2FjaGVzLm1hdGNoKGV2ZW50LnJlcXVlc3QpCiAgICAgIC50aGVuKGZ1bmN0aW9uKHJlc3BvbnNlKSB7CiAgICAgICAgaWYgKHJlc3BvbnNlKSB7CiAgICAgICAgICByZXR1cm4gcmVzcG9uc2U7CiAgICAgICAgfQogICAgICAgIHJldHVybiBmZXRjaChldmVudC5yZXF1ZXN0KTsKICAgICAgfQogICAgKQogICk7Cn0pOw==');
+        }
+
+        // Auto-load CSV từ default paths
+        async function autoLoadDefaultCSV() {
+            const defaultPaths = [
+                './data/vocab.csv',
+                './vocab.csv',
+                './data/vocabulary.csv'
+            ];
+
+            for (const path of defaultPaths) {
+                try {
+                    showUploadStatus(`Đang thử tải: ${path}`, 'loading');
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        const csvText = await response.text();
+                        if (csvText.trim()) {
+                            showUploadStatus(`✅ Đã tự động tải file: ${path}`, 'success');
+                            parseCSV(csvText);
+                            hideUploadSection();
+                            return true;
+                        }
+                    }
+                } catch (error) {
+                    // Tiếp tục thử path khác
+                    console.log(`Không tìm thấy file: ${path}`);
+                }
+            }
+            
+            // Không tìm thấy file nào
+            showUploadStatus('Không tìm thấy file mặc định. Vui lòng tải file CSV.', 'error');
+            return false;
+        }
+
+        function hideUploadSection() {
+            const fileUpload = document.getElementById('fileUpload');
+            if (fileUpload) {
+                fileUpload.style.display = 'none';
+                
+                // Thêm nút để hiện lại upload section
+                const controls = document.querySelector('.controls');
+                if (controls) {
+                    const showUploadBtn = document.createElement('button');
+                    showUploadBtn.textContent = '📄 Tải file CSV khác';
+                    showUploadBtn.onclick = showUploadSection;
+                    showUploadBtn.style.marginBottom = '20px';
+                    showUploadBtn.style.background = '#f1f3f4';
+                    showUploadBtn.style.color = '#333';
+                    controls.insertBefore(showUploadBtn, controls.firstChild);
+                }
+            }
+        }
+
+        function showUploadSection() {
+            const fileUpload = document.getElementById('fileUpload');
+            if (fileUpload) {
+                fileUpload.style.display = 'block';
+            }
+            if (event && event.target) {
+                event.target.remove(); // Xóa nút "Tải file CSV khác"
+            }
         }
 
         // Xử lý upload file
@@ -814,6 +876,9 @@
         }
 
         function showUploadStatus(message, type) {
+            const uploadStatus = document.getElementById('uploadStatus');
+            if (!uploadStatus) return;
+            
             uploadStatus.innerHTML = type === 'loading' ? 
                 `<div class="loading"><div class="spinner"></div>${message}</div>` : 
                 message;
@@ -821,8 +886,10 @@
             
             if (type === 'success') {
                 setTimeout(() => {
-                    uploadStatus.innerHTML = '';
-                    uploadStatus.className = '';
+                    if (uploadStatus) {
+                        uploadStatus.innerHTML = '';
+                        uploadStatus.className = '';
+                    }
                 }, 3000);
             }
         }
@@ -848,11 +915,33 @@
             
             document.getElementById('totalWords').textContent = totalWords;
             document.getElementById('totalGroups').textContent = totalGroups;
+            
+            // Update loading message safely
+            const loadingMessage = document.getElementById('loadingMessage');
+            if (loadingMessage) {
+                if (totalWords > 0) {
+                    loadingMessage.textContent = `Đã tải xong! Chọn nhóm và chế độ học bên trên để bắt đầu.`;
+                    loadingMessage.style.color = '#34a853';
+                } else {
+                    loadingMessage.textContent = `Không tìm thấy file mặc định. Vui lòng tải file CSV ở phía trên.`;
+                    loadingMessage.style.color = '#666';
+                }
+            }
         }
 
         function enableControls() {
             document.getElementById('startBtn').disabled = false;
             document.getElementById('quizBtn').disabled = false;
+            
+            // Update UI state
+            const hasData = vocabularyData.length > 0;
+            const startBtn = document.getElementById('startBtn');
+            const quizBtn = document.getElementById('quizBtn');
+            const groupSelect = document.getElementById('groupSelect');
+            
+            if (startBtn) startBtn.disabled = !hasData;
+            if (quizBtn) quizBtn.disabled = !hasData;
+            if (groupSelect) groupSelect.disabled = !hasData;
         }
 
         function startLearning() {
@@ -1165,20 +1254,15 @@
                 });
         }
 
-        // Auto-load CSV on page load if URL is provided
-        function autoLoadCSV() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const csvUrl = urlParams.get('csv');
-            if (csvUrl) {
-                document.getElementById('csvUrl').value = csvUrl;
-                loadFromUrl();
-            }
-        }
-
         // Khởi tạo
-        document.addEventListener('DOMContentLoaded', function() {
-            // Auto-load CSV if URL parameter exists
-            autoLoadCSV();
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Thử auto-load CSV từ default paths trước
+            const autoLoaded = await autoLoadDefaultCSV();
+            
+            if (!autoLoaded) {
+                // Nếu không auto-load được, thử load từ URL parameter
+                autoLoadFromUrlParam();
+            }
             
             // Update button states based on data availability
             function updateUI() {
@@ -1190,6 +1274,15 @@
 
             updateUI();
         });
+
+        function autoLoadFromUrlParam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const csvUrl = urlParams.get('csv');
+            if (csvUrl) {
+                document.getElementById('csvUrl').value = csvUrl;
+                loadFromUrl();
+            }
+        }
 
         // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
