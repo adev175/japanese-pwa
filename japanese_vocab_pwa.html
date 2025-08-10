@@ -1140,6 +1140,41 @@
             uploadStatus.appendChild(helpDiv);
         }
 
+        function loadFromUrl() {
+            const url = document.getElementById('csvUrl').value.trim();
+            if (!url) {
+                showUploadStatus('Vui lòng nhập URL', 'error');
+                return;
+            }
+
+            showUploadStatus('Đang tải từ URL...', 'loading');
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(csvText => {
+                    parseCSV(csvText);
+                })
+                .catch(error => {
+                    console.error('Error loading CSV:', error);
+                    showUploadStatus(`Lỗi tải file: ${error.message}. Kiểm tra URL và kết nối mạng.`, 'error');
+                });
+        }
+
+        // Auto-load CSV on page load if URL is provided
+        function autoLoadCSV() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const csvUrl = urlParams.get('csv');
+            if (csvUrl) {
+                document.getElementById('csvUrl').value = csvUrl;
+                loadFromUrl();
+            }
+        }
+
         // Khởi tạo
         document.addEventListener('DOMContentLoaded', function() {
             // Auto-load CSV if URL parameter exists
