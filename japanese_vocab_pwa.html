@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học từ vựng tiếng Nhật</title>
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiSOG7jWMgdOG7qyB24bq5bmggdGnhsr9uZyBOaOG6rXQiLCJzaG9ydF9uYW1lIjoiSmFwYW5lc2UgVm9jYWIiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNmZmZmZmYiLCJ0aGVtZV9jb2xvciI6IiM0Mjg1ZjQiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTWpRaUlHaGxhV2RvZEQwaU1qUWlJSFpwWlhkQ2IzZzlJakFnTUNBeU5DQXlOQ0lnWm1sc2JEMGlJelF5T0RWbU5DSWdlRzFzYm5NOUltaDBkSEE2THk5M2QzY3Vkek11YjNKbkx6SXdNREF2YzNabklpQStQR05wY21Oc1pTQmplRDBpTVRJaUlHTjVQU0l4TWlJZ2NqMGlPU0lnWm1sc2JEMGlJM1ptWmlJZ0x6NDhkR1Y0ZENCNFBTSXhNaUlnZVQwaU1UWWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdacGJHdzlJaU15T0RObVpqUWlJR1p2Ym5RdGMybDZaVDBpTVRRaVBrcGhMek04TDNSbGVIUStQQzl6ZG1jKyIsInNpemVzIjoiMjR4MjQiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTWpRaUlHaGxhV2RvZEQwaU1qUWlJSFpwWlhkQ2IzZzlJakFnTUNBeU5DQXlOQ0lnWm1sc2JEMGlJelF5T0RWbU5DSWdlRzFzYm5NOUltaDBkSEE2THk5M2QzY3VkekF1YjNKbkx6SXdNREF2YzNabklpQitQR05wY21Oc1pTQmplRDBpTVRJaUlHTjVQU0l4TWlJZ2NqMGlPU0lnWm1sc2JEMGlJM1ptWmlJZ0x6NDhkR1Y0ZENCNFBTSXhNaUlnZVQwaU1UWWlJSFJsZUhRdFlXNWphRzl5UFNKdGFXUmtiR1VpSUdacGJHdzlJaU15T0RObVpqUWlJR1p2Ym5RdGMybDZaVDBpTVRRaVBrcGhMek04TDNSbGVIUStQQzl6ZG1jKyIsInNpemVzIjoiNTEyeDUxMiIsInR5cGUiOiJpbWFnZS9zdmcrL3htbCJ9XX0=">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Japanese Vocab">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+
+        .controls {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .file-upload {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 2px dashed #4285f4;
+            border-radius: 10px;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover {
+            border-color: #34a853;
+            background: #f8f9ff;
+        }
+
+        .file-upload.dragover {
+            border-color: #34a853;
+            background: #e8f5e8;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload label {
+            cursor: pointer;
+            color: #4285f4;
+            font-weight: 600;
+            display: block;
+            padding: 10px;
+        }
+
+        .file-upload label:hover {
+            color: #34a853;
+        }
+
+        .upload-status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .upload-status.success {
+            background: #e8f5e8;
+            color: #137333;
+        }
+
+        .upload-status.error {
+            background: #fce8e6;
+            color: #d33b2c;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        select:focus, button:focus {
+            outline: none;
+            border-color: #4285f4;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(66, 133, 244, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #ea4335 0%, #fbbc04 100%);
+        }
+
+        .quiz-btn:hover {
+            box-shadow: 0 8px 20px rgba(234, 67, 53, 0.3);
+        }
+
+        .content {
+            padding: 40px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card.flipped {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .kanji {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;
+        }
+
+        .card.flipped .kanji {
+            color: white;
+        }
+
+        .reading {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 15px;
+            font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;
+        }
+
+        .card.flipped .reading {
+            color: #f0f0f0;
+        }
+
+        .meaning {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4285f4;
+        }
+
+        .card.flipped .meaning {
+            color: white;
+        }
+
+        .usage {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card.flipped .usage {
+            color: #e0e0e0;
+        }
+
+        .example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4285f4;
+        }
+
+        .card.flipped .example {
+            background: rgba(255,255,255,0.1);
+            border-left-color: white;
+        }
+
+        .example-jp {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;
+        }
+
+        .example-vi {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .card.flipped .example-vi {
+            color: #e0e0e0;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        .nav-btn {
+            background: #f1f3f4;
+            color: #333;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 100px;
+        }
+
+        .nav-btn:hover {
+            background: #e8eaed;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn:disabled:hover {
+            transform: none;
+        }
+
+        .progress {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4285f4;
+        }
+
+        .quiz-container {
+            text-align: center;
+        }
+
+        .quiz-question {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-option {
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .quiz-option:hover {
+            border-color: #4285f4;
+            background: #f8f9ff;
+        }
+
+        .quiz-option.correct {
+            border-color: #34a853;
+            background: #e8f5e8;
+            color: #137333;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #ea4335;
+            background: #fce8e6;
+            color: #d33b2c;
+        }
+
+        .quiz-result {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .quiz-result.correct {
+            background: #e8f5e8;
+            color: #137333;
+        }
+
+        .quiz-result.incorrect {
+            background: #fce8e6;
+            color: #d33b2c;
+        }
+
+        .start-screen {
+            text-align: center;
+        }
+
+        .start-screen h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .start-screen p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #4285f4;
+            font-weight: 600;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e1e5e9;
+            border-top: 2px solid #4285f4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .controls {
+                padding: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .kanji {
+                font-size: 36px;
+            }
+
+            .reading {
+                font-size: 20px;
+            }
+
+            .meaning {
+                font-size: 18px;
+            }
+
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-controls {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>学習帳 - Sổ học từ vựng</h1>
+            <p>Học từ vựng tiếng Nhật hiệu quả với Flashcard & Quiz</p>
+        </div>
+
+        <div class="controls">
+            <div class="file-upload" id="fileUpload">
+                <label for="csvFile">
+                    📄 Chọn file CSV hoặc kéo thả vào đây
+                    <br>
+                    <small style="color: #666; font-weight: normal;">
+                        File CSV phải có cấu trúc: Kanji, Reading, Meaning (tối thiểu)
+                    </small>
+                </label>
+                <input type="file" id="csvFile" accept=".csv" />
+                
+                <div style="margin: 15px 0; color: #666; font-size: 14px;">
+                    <strong>HOẶC</strong>
+                </div>
+                
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="text" id="csvUrl" placeholder="URL đến file CSV (ví dụ: https://raw.githubusercontent.com/username/repo/main/vocab.csv)" 
+                           style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+                    <button onclick="loadFromUrl()" style="padding: 10px 15px; background: #34a853; color: white; border: none; border-radius: 5px; cursor: pointer; white-space: nowrap;">
+                        Tải từ URL
+                    </button>
+                </div>
+                
+                <div id="uploadStatus"></div>
+            </div>
+
+            <div class="control-group">
+                <label for="groupSelect">Chọn nhóm từ vựng:</label>
+                <select id="groupSelect" disabled>
+                    <option value="">Vui lòng tải file CSV trước</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="modeSelect">Chế độ học:</label>
+                <select id="modeSelect">
+                    <option value="flashcard">Flashcard</option>
+                    <option value="quiz">Quiz</option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button onclick="startLearning()" id="startBtn" disabled>Bắt đầu học</button>
+                <button onclick="startQuiz()" class="quiz-btn" id="quizBtn" disabled>Làm Quiz</button>
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <div class="start-screen">
+                <h2>🎌 Chào mừng bạn đến với ứng dụng học từ vựng!</h2>
+                <p>Tải file CSV chứa từ vựng của bạn ở phía trên, sau đó chọn nhóm và chế độ học.</p>
+                <p>💡 <strong>Mẹo:</strong> Trong chế độ Flashcard, nhấp vào thẻ để lật và xem nghĩa.</p>
+                
+                <div class="stats" id="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalWords">0</div>
+                        <div class="stat-label">Tổng từ vựng</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalGroups">0</div>
+                        <div class="stat-label">Số nhóm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let vocabularyData = [];
+        let currentWords = [];
+        let currentIndex = 0;
+        let currentMode = 'flashcard';
+        let isFlipped = false;
+        let quizScore = 0;
+        let quizTotal = 0;
+        let currentQuizQuestion = null;
+
+        // Đăng ký service worker cho PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:application/javascript;base64,Y29uc3QgQ0FDSEVfTkFNRSA9ICdqYXBhbmVzZS12b2NhYi12MSc7CmNvbnN0IHVybHNUb0NhY2hlID0gWwogICcuLycKXTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGZ1bmN0aW9uKGV2ZW50KSB7CiAgZXZlbnQud2FpdFVudGlsKAogICAgY2FjaGVzLm9wZW4oQ0FDSEVfTkFNRSkKICAgICAgLnRoZW4oZnVuY3Rpb24oY2FjaGUpIHsKICAgICAgICByZXR1cm4gY2FjaGUuYWRkQWxsKHVybHNUb0NhY2hlKTsKICAgICAgfSkKICApOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignZmV0Y2gnLCBmdW5jdGlvbihldmVudCkgewogIGV2ZW50LnJlc3BvbmRXaXRoKAogICAgY2FjaGVzLm1hdGNoKGV2ZW50LnJlcXVlc3QpCiAgICAgIC50aGVuKGZ1bmN0aW9uKHJlc3BvbnNlKSB7CiAgICAgICAgaWYgKHJlc3BvbnNlKSB7CiAgICAgICAgICByZXR1cm4gcmVzcG9uc2U7CiAgICAgICAgfQogICAgICAgIHJldHVybiBmZXRjaChldmVudC5yZXF1ZXN0KTsKICAgICAgfQogICAgKQogICk7Cn0pOw==');
+        }
+
+        // Xử lý upload file
+        const fileUpload = document.getElementById('fileUpload');
+        const csvFileInput = document.getElementById('csvFile');
+        const uploadStatus = document.getElementById('uploadStatus');
+
+        // Drag and drop
+        fileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUpload.classList.add('dragover');
+        });
+
+        fileUpload.addEventListener('dragleave', () => {
+            fileUpload.classList.remove('dragover');
+        });
+
+        fileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUpload.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        csvFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            if (!file.name.toLowerCase().endsWith('.csv')) {
+                showUploadStatus('Vui lòng chọn file CSV', 'error');
+                return;
+            }
+
+            showUploadStatus('Đang tải file...', 'loading');
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    parseCSV(e.target.result);
+                } catch (error) {
+                    showUploadStatus('Lỗi đọc file: ' + error.message, 'error');
+                }
+            };
+            reader.readAsText(file, 'UTF-8');
+        }
+
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n');
+            if (lines.length < 2) {
+                showUploadStatus('File CSV không có dữ liệu', 'error');
+                return;
+            }
+
+            vocabularyData = [];
+            
+            // Thử các delimiter khác nhau
+            const delimiters = [',', '\t', '|', ';'];
+            let bestDelimiter = ',';
+            let maxColumns = 0;
+            
+            for (const delimiter of delimiters) {
+                const testHeaders = lines[0].split(delimiter);
+                if (testHeaders.length > maxColumns) {
+                    maxColumns = testHeaders.length;
+                    bestDelimiter = delimiter;
+                }
+            }
+
+            const headers = lines[0].split(bestDelimiter).map(h => h.trim().replace(/["|']/g, ''));
+            
+            // Tự động nhận diện cột dựa trên nội dung
+            const columnMap = detectColumns(headers);
+            
+            if (!columnMap.kanji || !columnMap.reading || !columnMap.meaning) {
+                showUploadStatus('Không thể nhận diện cấu trúc file. Cần ít nhất: Kanji, Reading, Meaning', 'error');
+                showColumnMappingHelp(headers);
+                return;
+            }
+
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+
+                const values = line.split(bestDelimiter).map(v => v.trim().replace(/["|']/g, ''));
+                if (values.length < 3) continue;
+
+                const word = {
+                    group: columnMap.group ? (parseInt(values[columnMap.group]) || 1) : 1,
+                    kanji: values[columnMap.kanji]?.trim() || '',
+                    reading: values[columnMap.reading]?.trim() || '',
+                    meaning: values[columnMap.meaning]?.trim() || '',
+                    usage: columnMap.usage ? (values[columnMap.usage]?.trim() || '') : '',
+                    example_jp: columnMap.example_jp ? (values[columnMap.example_jp]?.trim() || '') : '',
+                    example_vi: columnMap.example_vi ? (values[columnMap.example_vi]?.trim() || '') : ''
+                };
+
+                if (word.kanji && word.reading && word.meaning) {
+                    vocabularyData.push(word);
+                }
+            }
+
+            if (vocabularyData.length === 0) {
+                showUploadStatus('Không tìm thấy từ vựng hợp lệ trong file', 'error');
+                return;
+            }
+
+            showUploadStatus(`Đã tải ${vocabularyData.length} từ vựng thành công! (Nhận diện: ${bestDelimiter === '\t' ? 'Tab' : bestDelimiter})`, 'success');
+            updateGroupSelect();
+            updateStats();
+            enableControls();
+        }
+
+        function detectColumns(headers) {
+            const columnMap = {};
+            
+            // Patterns để nhận diện cột
+            const patterns = {
+                group: ['nhóm', 'group', 'グループ', 'lesson'],
+                kanji: ['kanji', 'từ', 'word', '漢字', 'vocab', 'vocabulary'],
+                reading: ['reading', 'đọc', 'phát âm', 'よみ', '読み', 'pronunciation', 'hiragana'],
+                meaning: ['nghĩa', 'meaning', 'định nghĩa', 'translation', 'vietnamese', 'vi'],
+                usage: ['cách dùng', 'usage', 'phân biệt', 'note', 'ghi chú', 'comment'],
+                example_jp: ['ví dụ', 'example', '例文', 'jp', 'japanese', 'sentence'],
+                example_vi: ['dịch', 'translate', 'vietnamese', 'meaning', 'vi translation']
+            };
+
+            for (let i = 0; i < headers.length; i++) {
+                const header = headers[i].toLowerCase();
+                
+                for (const [type, keywords] of Object.entries(patterns)) {
+                    if (keywords.some(keyword => header.includes(keyword))) {
+                        if (!columnMap[type]) { // Chỉ lấy cột đầu tiên match
+                            columnMap[type] = i;
+                        }
+                    }
+                }
+            }
+
+            // Fallback: nếu không tìm thấy, dự đoán theo thứ tự
+            if (!columnMap.kanji && headers.length >= 3) {
+                // Tìm cột có ký tự Kanji/Hiragana
+                for (let i = 0; i < Math.min(headers.length, 5); i++) {
+                    if (headers[i].match(/[一-龯ひらがなカタカナ]/)) {
+                        columnMap.kanji = i;
+                        break;
+                    }
+                }
+                if (!columnMap.kanji) columnMap.kanji = 1; // Default to second column
+            }
+
+            if (!columnMap.reading && headers.length >= 3) {
+                for (let i = 0; i < Math.min(headers.length, 5); i++) {
+                    if (i !== columnMap.kanji && headers[i].match(/[ひらがなカタカナ]/)) {
+                        columnMap.reading = i;
+                        break;
+                    }
+                }
+                if (!columnMap.reading) columnMap.reading = 2; // Default to third column
+            }
+
+            if (!columnMap.meaning && headers.length >= 3) {
+                for (let i = 0; i < headers.length; i++) {
+                    if (i !== columnMap.kanji && i !== columnMap.reading) {
+                        columnMap.meaning = i;
+                        break;
+                    }
+                }
+            }
+
+            return columnMap;
+        }
+
+        function showColumnMappingHelp(headers) {
+            const helpDiv = document.createElement('div');
+            helpDiv.innerHTML = `
+                <div style="margin-top: 15px; padding: 15px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; font-size: 14px;">
+                    <strong>💡 Gợi ý format CSV:</strong><br>
+                    Các cột được tìm thấy: ${headers.join(', ')}<br><br>
+                    <strong>Format được hỗ trợ:</strong><br>
+                    • Delimiter: dấu phẩy (,), tab, dấu chấm phẩy (;), hoặc dấu gạch đứng (|)<br>
+                    • Cần ít nhất 3 cột: Kanji, Reading, Meaning<br>
+                    • Từ khóa nhận diện: kanji, reading/đọc, nghĩa/meaning, nhóm/group, ví dụ/example<br><br>
+                    <strong>Ví dụ format hợp lệ:</strong><br>
+                    <code>Kanji,Reading,Meaning<br>絶叫,ぜっきょう,gào thét</code>
+                </div>
+            `;
+            uploadStatus.appendChild(helpDiv);
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            
+            result.push(current);
+            return result;
+        }
+
+        function showUploadStatus(message, type) {
+            uploadStatus.innerHTML = type === 'loading' ? 
+                `<div class="loading"><div class="spinner"></div>${message}</div>` : 
+                message;
+            uploadStatus.className = `upload-status ${type}`;
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    uploadStatus.innerHTML = '';
+                    uploadStatus.className = '';
+                }, 3000);
+            }
+        }
+
+        function updateGroupSelect() {
+            const groupSelect = document.getElementById('groupSelect');
+            const groups = [...new Set(vocabularyData.map(word => word.group))].sort((a, b) => a - b);
+            
+            groupSelect.innerHTML = '<option value="all">Tất cả các nhóm</option>';
+            groups.forEach(group => {
+                const option = document.createElement('option');
+                option.value = group;
+                option.textContent = `Nhóm ${group}`;
+                groupSelect.appendChild(option);
+            });
+            
+            groupSelect.disabled = false;
+        }
+
+        function updateStats() {
+            const totalWords = vocabularyData.length;
+            const totalGroups = new Set(vocabularyData.map(word => word.group)).size;
+            
+            document.getElementById('totalWords').textContent = totalWords;
+            document.getElementById('totalGroups').textContent = totalGroups;
+        }
+
+        function enableControls() {
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('quizBtn').disabled = false;
+        }
+
+        function startLearning() {
+            if (vocabularyData.length === 0) {
+                alert('Vui lòng tải file CSV trước!');
+                return;
+            }
+
+            const selectedGroup = document.getElementById('groupSelect').value;
+            const mode = document.getElementById('modeSelect').value;
+            
+            if (selectedGroup === 'all') {
+                currentWords = [...vocabularyData];
+            } else {
+                currentWords = vocabularyData.filter(word => word.group == selectedGroup);
+            }
+
+            if (currentWords.length === 0) {
+                alert('Không có từ vựng nào trong nhóm đã chọn!');
+                return;
+            }
+
+            // Shuffle words
+            currentWords = shuffleArray(currentWords);
+            currentIndex = 0;
+            currentMode = mode;
+
+            if (mode === 'flashcard') {
+                showFlashcard();
+            } else {
+                startQuiz();
+            }
+        }
+
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function showFlashcard() {
+            if (currentWords.length === 0) return;
+
+            isFlipped = false;
+            const word = currentWords[currentIndex];
+            
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="card" onclick="flipCard()" id="flashcard">
+                    <div class="kanji">${word.kanji}</div>
+                    <div class="reading">${word.reading}</div>
+                    <div class="navigation">
+                        <button class="nav-btn" onclick="event.stopPropagation(); previousCard()" ${currentIndex === 0 ? 'disabled' : ''}>
+                            ← Trước
+                        </button>
+                        <div class="progress">
+                            ${currentIndex + 1} / ${currentWords.length}
+                        </div>
+                        <button class="nav-btn" onclick="event.stopPropagation(); nextCard()" ${currentIndex === currentWords.length - 1 ? 'disabled' : ''}>
+                            Sau →
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function flipCard() {
+            if (currentWords.length === 0) return;
+
+            const card = document.getElementById('flashcard');
+            const word = currentWords[currentIndex];
+            
+            if (!isFlipped) {
+                card.classList.add('flipped');
+                card.innerHTML = `
+                    <div class="kanji">${word.kanji}</div>
+                    <div class="reading">${word.reading}</div>
+                    <div class="meaning">${word.meaning}</div>
+                    <div class="usage">${word.usage}</div>
+                    <div class="example">
+                        <div class="example-jp">${word.example_jp}</div>
+                        <div class="example-vi">${word.example_vi}</div>
+                    </div>
+                    <div class="navigation">
+                        <button class="nav-btn" onclick="event.stopPropagation(); previousCard()" ${currentIndex === 0 ? 'disabled' : ''}>
+                            ← Trước
+                        </button>
+                        <div class="progress">
+                            ${currentIndex + 1} / ${currentWords.length}
+                        </div>
+                        <button class="nav-btn" onclick="event.stopPropagation(); nextCard()" ${currentIndex === currentWords.length - 1 ? 'disabled' : ''}>
+                            Sau →
+                        </button>
+                    </div>
+                `;
+                isFlipped = true;
+            } else {
+                card.classList.remove('flipped');
+                showFlashcard();
+            }
+        }
+
+        function nextCard() {
+            if (currentIndex < currentWords.length - 1) {
+                currentIndex++;
+                showFlashcard();
+            }
+        }
+
+        function previousCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showFlashcard();
+            }
+        }
+
+        function startQuiz() {
+            if (vocabularyData.length === 0) {
+                alert('Vui lòng tải file CSV trước!');
+                return;
+            }
+
+            const selectedGroup = document.getElementById('groupSelect').value;
+            
+            if (selectedGroup === 'all') {
+                currentWords = [...vocabularyData];
+            } else {
+                currentWords = vocabularyData.filter(word => word.group == selectedGroup);
+            }
+
+            if (currentWords.length < 4) {
+                alert('Cần ít nhất 4 từ vựng để làm quiz!');
+                return;
+            }
+
+            currentWords = shuffleArray(currentWords);
+            currentIndex = 0;
+            quizScore = 0;
+            quizTotal = Math.min(10, currentWords.length);
+            currentMode = 'quiz';
+            
+            showQuizQuestion();
+        }
+
+        function showQuizQuestion() {
+            if (currentIndex >= quizTotal) {
+                showQuizResult();
+                return;
+            }
+
+            const word = currentWords[currentIndex];
+            const otherWords = currentWords.filter(w => w !== word);
+            const wrongAnswers = shuffleArray(otherWords).slice(0, 3);
+            const allOptions = shuffleArray([word, ...wrongAnswers]);
+
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        <div style="font-size: 36px; margin-bottom: 20px; font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;">
+                            ${word.kanji}
+                        </div>
+                        <div style="font-size: 20px; margin-bottom: 30px; font-family: 'Yu Gothic', 'Hiragino Sans', sans-serif;">
+                            ${word.reading}
+                        </div>
+                        <div style="font-size: 18px; color: #666;">
+                            Nghĩa của từ này là gì?
+                        </div>
+                    </div>
+                    <div class="quiz-options">
+                        ${allOptions.map((option, index) => `
+                            <div class="quiz-option" onclick="selectAnswer('${option.meaning}', '${word.meaning}')">
+                                ${option.meaning}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="progress">
+                        Câu ${currentIndex + 1} / ${quizTotal} | Điểm: ${quizScore}
+                    </div>
+                </div>
+            `;
+
+            currentQuizQuestion = word;
+        }
+
+        function selectAnswer(selected, correct) {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.textContent.trim() === correct) {
+                    option.classList.add('correct');
+                } else if (option.textContent.trim() === selected && selected !== correct) {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            const isCorrect = selected === correct;
+            if (isCorrect) {
+                quizScore++;
+            }
+
+            // Show explanation
+            const quizContainer = document.querySelector('.quiz-container');
+            const explanation = document.createElement('div');
+            explanation.className = `quiz-result ${isCorrect ? 'correct' : 'incorrect'}`;
+            explanation.innerHTML = `
+                <div>${isCorrect ? '✅ Chính xác!' : '❌ Sai rồi!'}</div>
+                <div style="margin-top: 10px; font-size: 16px;">
+                    <strong>${currentQuizQuestion.kanji}</strong> (${currentQuizQuestion.reading})<br>
+                    <strong>Nghĩa:</strong> ${currentQuizQuestion.meaning}<br>
+                    <strong>Cách dùng:</strong> ${currentQuizQuestion.usage}<br>
+                    <strong>Ví dụ:</strong> ${currentQuizQuestion.example_jp}<br>
+                    <strong>Dịch:</strong> ${currentQuizQuestion.example_vi}
+                </div>
+                <button onclick="nextQuestion()" style="margin-top: 20px; padding: 10px 20px; background: #4285f4; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                    Tiếp theo
+                </button>
+            `;
+            quizContainer.appendChild(explanation);
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            showQuizQuestion();
+        }
+
+        function showQuizResult() {
+            const percentage = Math.round((quizScore / quizTotal) * 100);
+            let message = '';
+            let emoji = '';
+
+            if (percentage >= 90) {
+                message = 'Xuất sắc! Bạn đã thành thạo những từ này!';
+                emoji = '🏆';
+            } else if (percentage >= 70) {
+                message = 'Tốt lắm! Hãy tiếp tục luyện tập!';
+                emoji = '👍';
+            } else if (percentage >= 50) {
+                message = 'Không tệ! Bạn cần ôn tập thêm một chút.';
+                emoji = '📚';
+            } else {
+                message = 'Hãy học kỹ hơn và thử lại nhé!';
+                emoji = '💪';
+            }
+
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="quiz-container">
+                    <div style="font-size: 48px; margin-bottom: 20px;">${emoji}</div>
+                    <h2>Kết quả Quiz</h2>
+                    <div style="font-size: 36px; font-weight: bold; color: #4285f4; margin: 20px 0;">
+                        ${quizScore}/${quizTotal}
+                    </div>
+                    <div style="font-size: 24px; color: #666; margin-bottom: 20px;">
+                        ${percentage}%
+                    </div>
+                    <div style="font-size: 18px; margin-bottom: 30px; color: #333;">
+                        ${message}
+                    </div>
+                    <div class="button-group" style="max-width: 400px; margin: 0 auto;">
+                        <button onclick="startQuiz()" class="quiz-btn">Làm lại Quiz</button>
+                        <button onclick="startLearning()">Học Flashcard</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showColumnMappingHelp(headers) {
+            const helpDiv = document.createElement('div');
+            helpDiv.innerHTML = `
+                <div style="margin-top: 15px; padding: 15px; background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; font-size: 14px;">
+                    <strong>💡 Gợi ý format CSV:</strong><br>
+                    Các cột được tìm thấy: ${headers.join(', ')}<br><br>
+                    <strong>Format được hỗ trợ:</strong><br>
+                    • Delimiter: dấu phẩy (,), tab, dấu chấm phẩy (;), hoặc dấu gạch đứng (|)<br>
+                    • Cần ít nhất 3 cột: Kanji, Reading, Meaning<br>
+                    • Từ khóa nhận diện: kanji, reading/đọc, nghĩa/meaning, nhóm/group, ví dụ/example<br><br>
+                    <strong>Ví dụ format hợp lệ:</strong><br>
+                    <code>Kanji,Reading,Meaning<br>絶叫,ぜっきょう,gào thét</code>
+                </div>
+            `;
+            uploadStatus.appendChild(helpDiv);
+        }
+
+        // Khởi tạo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-load CSV if URL parameter exists
+            autoLoadCSV();
+            
+            // Update button states based on data availability
+            function updateUI() {
+                const hasData = vocabularyData.length > 0;
+                document.getElementById('startBtn').disabled = !hasData;
+                document.getElementById('quizBtn').disabled = !hasData;
+                document.getElementById('groupSelect').disabled = !hasData;
+            }
+
+            updateUI();
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (currentMode === 'flashcard' && currentWords.length > 0) {
+                if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    previousCard();
+                } else if (e.key === 'ArrowRight' && currentIndex < currentWords.length - 1) {
+                    nextCard();
+                } else if (e.key === ' ') {
+                    e.preventDefault();
+                    flipCard();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
